@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { GetServerSideProps } from "next";
 // import { useEffect, useState } from "react";
 
@@ -31,6 +32,12 @@ export default function Home({ recommendedProducts }: HomeProps) {
 
   return (
     <div>
+      <SEO 
+        title="DevCommerce, your best e-commerce!" 
+        image="Naruto_newshot.png"
+        shouldExcludeTitleSufix 
+      />
+
       <section>
         <h1>Products</h1>
 
@@ -52,7 +59,7 @@ export default function Home({ recommendedProducts }: HomeProps) {
 
 // server side rendering
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  const response = await fetch(`${process.env.API_URL}/recommended`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/recommended`);
   const recommendedProducts = await response.json();
 
   return {
