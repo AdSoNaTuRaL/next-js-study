@@ -4,7 +4,8 @@ import dynamic from 'next/dynamic';
 
 // lazy load components
 const AddToCartModal = dynamic(
-  () => import('../../components/AddToCartModal'),
+  //paths typescript
+  () => import('@/components/AddToCartModal'),
   { loading: () => <p>Loading...</p>, ssr: false }
 )
 
